@@ -78,3 +78,52 @@
 </body>
 
 </html>
+
+
+<script>
+    var objarray = [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+    ];
+
+    //1 { text: 'Four', value: 'D' } 추가
+    objarray[objarray.length] = { text: 'Four', value: 'D' };
+
+    console.log(objarray);
+
+    //2 { text: 'Two', value: 'B' } 를 { text: '2', value: '2' } 로 바꾸시오
+    const findindex = objarray.findIndex((item, index, array)=>{
+        return item.text == 'Two';
+    });
+    objarray[findindex] = { text: '2', value: '2' };
+    console.log(objarray);
+
+    //3 filter 메서드를 사용하여 text의 값이 'One' 인 객체들을 찾으시오
+    const arrfilter = objarray.filter( (item, index, array)=>{
+        return item.text == 'One';
+    });
+    console.log(arrfilter);
+
+    //4 { text: 'Three', value: 'C' } 를 삭제하시오.
+    const deleteIndex = objarray.findIndex((item, index, array)=>{
+        return item.text == 'Three' && item.value == 'C';
+    });
+    objarray.splice(deleteIndex, 1);
+    console.log("deleteIndex", deleteIndex);
+
+    //5 map 메서드를 사용하여 no 프로퍼티 추가하시오
+    objarray = objarray.map( (item,index,array)=>{
+        item.no = 10;
+        return item;
+    });
+    console.log(objarray);
+
+    debugger;
+
+    //6 reduce 메서드를 사용하여 각 요소의 value 프로퍼티 를 합쳐서 하나의 문자열로 만드시오
+    const str = objarray.reduce((prevItem, curtItem, index, array)=>{
+        return prevItem.value + curtItem.value;
+    });
+    console.log(str);
+</script>

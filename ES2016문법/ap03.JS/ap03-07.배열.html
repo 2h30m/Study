@@ -205,4 +205,60 @@
     </body>
 </html>
 
-
+
+<script>
+    //1배열생성
+    let arr = [true, 100, "two"];
+    
+    //2배열출력
+    console.log(arr[1]);
+
+    //3배열추가 [true, 100, "two", "three", undefined, "four", "aaa"]
+    arr[arr.length] = "three";
+    arr[arr.length] = undefined;
+    arr[arr.length] = "four";
+    arr[arr.length] = "aaa";
+
+    //4배열수정 ["update", 100, "two", "three", undefined, "four", "update"]
+    arr[0] = "update";
+    console.log(arr);
+
+    //5배열삭제 ["update", 100, "three", undefined, "update"]
+    arr.splice(2,1);
+    console.log(arr);
+
+    //6배열검색 [1, 3, 3784, 98, 842, 8230]
+    arr = [1, 3, 3784, 98, 842, 8230];
+    const arrfilter = arr.filter( (value,index,array)=>{
+        return value > 100;
+    });
+    console.log(arrfilter);
+
+    //7 sort 배열정렬
+    arr = [1, 3, 3784, 98, 842, 8230];
+    const arrsort = arr.sort( (a,b)=>{
+        return a-b;
+    });
+    console.log("arrsort", arrsort);
+
+    //8배열복제
+    arr = [1, 3, 3784, 98, 842, 8230];
+    const arrmap = arr.map( (value,index,array)=>{
+        return value * 10;
+    });
+    console.log("arrmap", arrmap);
+
+    //9 reduce() 매서드
+    arr = [1, 3, 3784, 98, 842, 8230];
+    const arrreduce = arr.reduce((pvalue, cvalue, index, array)=>{
+        return pvalue + cvalue;
+    });
+    console.log("arrreduce", arrreduce);
+
+    //10 배열에서 값 찾기
+    arr = [1, 3, 3784, 98, 842, 8230];
+    const index = arr.findIndex( (value, index, array)=>{
+        return value == 98;
+    });
+    console.log(index);
+</script>

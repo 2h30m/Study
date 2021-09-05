@@ -244,4 +244,51 @@
     </body>
 </html>
 
-
+
+<script>
+    var foo = {
+        name  : 'foo',
+        age   : 30,
+        array : [1,4,5,5],
+        run   : function () {
+            return this.name;
+        },
+    };
+
+    //1
+    console.log( foo.age );
+
+    //2
+    console.log( foo['age'] );
+
+    //3
+    foo.gender = "man";
+    console.log( foo.gender );
+
+    //4
+    foo.name = "bar";
+    console.log( foo.name );
+
+    //5
+    delete foo.age;
+    delete foo.gender;
+    console.log( foo.age );
+    console.log( foo.gender );
+
+    //6
+    var dog = {
+        name  : 'fido',
+        weight  : 40,
+        breed  : "mixed",
+        loves  : ["walks", "fetching balls"],
+    };
+
+    //7
+    const book = {
+        "이름" : "Nature of Code",
+        "가격" : 30000,
+        "저자" : "다니엘",
+        "ISBN" : "9788968481901",
+        "페이지수" : "620페이지",
+    };
+</script>
