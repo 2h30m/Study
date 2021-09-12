@@ -83,6 +83,36 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            mesg1: null,
+            // mesg2: null,
+            mesg3: null,
+        },
+        methods: {
+            msgKey (){
+                console.log(event.target.value);
 
+                this.$data.mesg1 = event.target.value;
+
+                this.$set(this.$data,"mesg1",event.target.value);
+            }
+        },
+        watch:{
+            mesg1: function (value){
+                setTimeout( ()=> this.$data.mesg3 = value, 2000);
+            }
+        },
+        computed: {
+            mesg2: function(){
+                return this.$data.mesg1 + ">>>" + new Date().toLocaleDateString()
+            }
+        },
+    });
+
+</script>
 
 

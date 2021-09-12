@@ -111,6 +111,59 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            arr: [1, 2, 3, 4, 5],
+        },
+        methods: {
+            change1(event){
+                console.log(event.target);
+                //alert('change1');
+                //[100, 2, 3, 4, 5];
+                this.$data.arr[0] = 100;
+                
+                //여기까지는 화면은 바뀌지 않고 데이터만 바뀜.
+                this.$set(this.$data.arr, 0, 100);
+                //이렇게 해야 화면도 바뀜.
 
+                console.log(this.$data.arr);
+            },
+            change2(){
+                //alert('change2');
+                //[100, 300, 3, 4, 5]
+                console.log(event.target);
+                //this.$data.arr[1] = 300;
+                this.$set(this.$data.arr, 1, 300);
+
+                console.log(this.$data.arr);
+            },
+            change3(){
+                //alert('change3');
+                console.log(event.target);
+                //[3, 4, 5] 
+                this.$data.arr.splice(0,2);
+
+                console.log(this.$data.arr);
+            },
+            change4(){
+                //alert('change4');
+                console.log(event.target);
+                //[500, 3, 4, 5, 70]
+                const newarr = [...this.$data.arr, 70];
+
+                this.$data.arr = newarr;
+
+                console.log(this.$data.arr);
+            },
+            change5(){
+                //alert('change5');
+            }
+        }
+    });
+
+</script>
 
 

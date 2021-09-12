@@ -37,6 +37,7 @@
     <hr>
 
     <div id="app" class="col-md-10 offset-md-1">
+        <button v-on:click="btnAddClick">추가</button>
         <table id="list" class="table-bordered">
             <thead>
                 <tr class="bg-warning text-white text-center">
@@ -56,15 +57,46 @@
             </tbody>
         </table>
     </div>
-
-
-    
-
 </body>
 
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        el:"#app",
+        data: {
+            contacts:[
+                {name:"철수", tel:"010-1-111", address:"서울"},
+                {name:"철수", tel:"010-1-111", address:"서울"},
+                {name:"철수", tel:"010-1-111", address:"서울"},
+            ],
+            name: null,
+            tel: null,
+            address: null,
+        },
+        //template: ``,
+        methods: {
+            btnAddClick(){
+                const obj = {
+                    name: this.$data.name,
+                    tel:this.$data.tel,
+                    address:this.$data.address,
+                };
 
+                //this.$data.contacts.push();
+                //this.$data.contacts[this.$data.contacts.length] = obj;
+                this.$set(contacts,this.$data.contacts.length,obj);
+
+                console.log(this.$data.contacts);
+
+                this.$data.name= null;
+                this.$data.tel= null;
+                this.$data.address= null;
+            }
+        },
+    });
+</script>
 
 

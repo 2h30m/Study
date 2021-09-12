@@ -72,7 +72,40 @@
 </html>
 
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.6.14/dist/vue.js"> /* vue 플러그인 임포트 */</script>
+<script>
+    new Vue({
+        
+    });
+    const data = {
+         msg: "Hello",
+     };
 
+     Object.defineProperty( 
+         data,
+         "msg",
+         {
+             get(){
+                 //화면에서 값을 가져온다.
+                return document.getElementById('app2').innerText;
+             },
+             set(value){
+                 //화면을 바꾼다
+                document.getElementById('app2').innerText = value;
+             }
+         }
+     );
+
+     debugger;
+     console.log(data.msg);
+    
+     //데이터에 값을 넣으면 화면이 바뀐다.
+     data.msg = "123"; //setter 해서 화면을 바꾼다.
+
+     function app2BtnClick(){
+        data.msg = "abc";
+     };
+</script>
 
 
 
