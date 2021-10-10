@@ -73,10 +73,67 @@
 
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">
+    /* 자바스크립트로 컴파일러. ES6-->ES5, JSX-->ES5 */
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.development.js">
+    /* import React, { Component, PureComponent } from 'react' */
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js">
+    /* import ReactDOM from 'react-dom' */
+</script>
+<script type="text/babel">
+    // import React, { useState, useEffect, useRef, useCallback, useMemo, Fragment } from 'react';
+    // import PropTypes from 'prop-types';
+    // import ReactRedux, { Provider, useDispatch, useSelector } from 'react-redux';
+    // import ReactRouterDOM, { BrowserRouter, Switch, Route, Redirect, Link, NavLink, useParams, useLocation, useHistory, useRouteMatch } from 'react-router-dom';
+    // import { takeEvery, put, call, all, fork, spawn } from 'redux-saga/effects';
 
+    const { useState, useEffect, useRef, useCallback, useMemo, Fragment } = React;
 
+    function ExampleContainer(props) {
+        // 컴포넌트의 상태값 설정
+        const [count, setCount] = useState(0); // "count"라는 새 상태 변수를 선언합니다
 
+        const callback = useCallback( (param)=>{
+            //
+            setCount( count + param );
+        }, [count]);
 
+        return (
+            <div>
+                <Example const={const} callback={callback}></Example>
+            </div>
+        )
 
+        // JSX로 화면 만들기
+        const Example = [
+            const [age, setAge] = useState(42);
+            const [fruit, setFruit] = useState('banana');
+            const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+        
+        const handler = (event)=>{
+            console.log(event.target);
 
-
+            props.callback();
+        }
+        return (
+            <div>
+                <p>You clicked {count} times</p>
+                <button onClick={(event) => alert("컨테이너의 상태값을 바꾸는 코드를 작성하시오.") }>
+                Click me
+                </button>
+                { /* age 상태값이 출력되게 하시오. */ }
+                <p>age : {age}</p>
+                { /* fruit 상태값이 출력되게 하시오. */ }
+                <p>fruit : {fruit}</p>
+                { /* todos 상태값이 출력되게 하시오. */ }
+                <p>{todos && todos.map( (todo)=> <li>{todo.text}</li>)}</p>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<HelloContainer />, document.getElementById("app") );
+</script>
